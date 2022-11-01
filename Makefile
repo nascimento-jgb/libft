@@ -6,7 +6,7 @@
 #    By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 11:04:55 by jonascim          #+#    #+#              #
-#    Updated: 2022/11/01 10:58:58 by jonascim         ###   ########.fr        #
+#    Updated: 2022/11/01 16:59:54 by jonascim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,18 +27,24 @@ BONUS = \
 	ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
 
-OBJECTS = $(SOURCES:.c=.o) $(BONUS:.c=.o)
+OBJECTS = $(SOURCES:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror -I includes -c
 
-$(NAME):
-	gcc $(FLAGS) $(SOURCES) $(BONUS)
-	ar rcs $(NAME) $(OBJECTS)
-
 all: $(NAME)
 
+$(NAME):
+	cc $(FLAGS) $(SOURCES)
+	ar rcs $(NAME) $(OBJECTS)
+
+$(BONUS:.c=.o): $(BONUS)
+	cc $(FLAGS) $(BONUS)
+
+bonus: $(BONUS:.c=.o)
+	ar rus $(NAME) $(BONUS:.c=.o)
+
 clean:
-	rm -f $(OBJECTS)
+	rm -f $(SOURCES:.c=.o) $(BONUS:.c=.o)
 
 fclean: clean
 	rm -f $(NAME)
