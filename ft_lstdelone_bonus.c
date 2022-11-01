@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 10:06:16 by jonascim          #+#    #+#             */
-/*   Updated: 2022/11/01 15:34:08 by jonascim         ###   ########.fr       */
+/*   Created: 2022/10/31 17:04:23 by jonascim          #+#    #+#             */
+/*   Updated: 2022/10/31 17:18:21 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	const char	*start;
-	const char	*end;
-
-	if (s1 == NULL || set == NULL)
-		return (NULL);
-	start = s1;
-	end = s1 + ft_strlen(s1);
-	while (ft_strchr(set, *start))
-		++start;
-	while (ft_strchr(set, *end))
-		--end;
-	return (ft_substr(s1, start - s1, end - start + 1));
+	if (lst == NULL || del == NULL)
+		return ;
+	if ((*lst).content != NULL)
+		del((*lst).content);
+	free(lst);
 }

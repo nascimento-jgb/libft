@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:29:05 by jonascim          #+#    #+#             */
-/*   Updated: 2022/10/31 15:49:02 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:33:37 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ size_t len)
 	size_t	len1;
 	size_t	len2;
 
-	if ( s == NULL)
+	if (s == NULL)
 		return (NULL);
 	len1 = ft_strlen(s);
-	if( len1 < (size_t) start)
+	if (len1 < (size_t) start)
 		return (ft_strdup("\0"));
 	len2 = len1 - start;
-	if(len2 > start)
+	if (len2 > start)
 		len2 = len;
 	substr = (char *)malloc((sizeof(char)) * len + 1);
 	if (substr == NULL)

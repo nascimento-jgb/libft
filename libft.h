@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 16:02:08 by joaonascime       #+#    #+#             */
-/*   Updated: 2022/10/31 18:24:16 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:33:56 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct s_list
 {
 	void			*content;
-	struct	s_list	*next;
+	struct s_list	*next;
 }	t_list;
 
 //1st part
@@ -50,7 +50,7 @@ char	*ft_strdup(const char *str);
 //2nd part
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strtrim(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
